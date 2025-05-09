@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TBADatalyticsSolutions.Models.Service>
+
+@{
+    ViewData["Title"] = "Welcome to TBA Datalytics Solutions";
+}
+
+<div class="text-center py-5 bg-light shadow-sm rounded">
+    <img src="~/images/logo.jpg" alt="TBA Datalytics Solutions Logo" style="max-height: 100px;" class="mb-3" />
+    <h1 class="display-4 text-blue">TBA Datalytics Solutions</h1>
+    <p class="lead text-secondary">Empowering businesses with insights, intelligence, and innovation.</p>
+    <a class="btn btn-primary btn-lg mt-3" href="/Auth">Get Started</a>
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Our Services</h2>
+    <div class="row">
+        @foreach (var service in Model)
+        {
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card border-0 shadow-sm h-100 text-center">
+                    <img src="~/images/@service.IconClass" class="card-img-top mx-auto mt-3" style="max-height:100px; width:auto;" alt="@service.Title" />
+                    <div class="card-body">
+                        <h5 class="card-title">@service.Title</h5>
+                        <p class="card-text text-muted">@service.Description</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="/Auth" class="btn btn-sm btn-outline-primary">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
