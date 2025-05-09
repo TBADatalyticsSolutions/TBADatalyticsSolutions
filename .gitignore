@@ -1,0 +1,15 @@
+bin/
+obj/
+*.user
+*.suo
+*.vs/
+*.db
+*.db-shm
+*.db-wal
+appsettings.*.json
+secrets.json
+.env
+.vscode/
+node_modules/
+*.log
+*.DS_Store
