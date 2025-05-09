@@ -108,3 +108,4 @@ C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.pdb
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.genruntimeconfig.cache
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\ref\TBADatalyticsSolutions.dll
+C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.sourcelink.json

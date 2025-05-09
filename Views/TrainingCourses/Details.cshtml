@@ -1,0 +1,16 @@
+@model TBADatalyticsSolutions.Models.TrainingCourse
+
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<h2>@Model.CourseTitle</h2>
+<p>@Model.Description</p>
+<ul>
+    <li><strong>Instructor:</strong> @Model.Instructor</li>
+    <li><strong>Start Date:</strong> @Model.StartDate.ToShortDateString()</li>
+    <li><strong>Duration:</strong> @Model.DurationWeeks weeks</li>
+    <li><strong>Level:</strong> @Model.Level</li>
+    <li><strong>Price:</strong> ₦@Model.Price.ToString("N2")</li>
+</ul>
+<a class="btn btn-secondary" href="@Url.Action("Index")">Back to Courses</a>

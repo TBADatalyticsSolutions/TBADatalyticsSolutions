@@ -1,0 +1,43 @@
+@model TBADatalyticsSolutions.Models.TrainingCourse
+
+@{
+    ViewData["Title"] = "Create Course";
+}
+
+<h2>Create New Course</h2>
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="CourseTitle"></label>
+        <input asp-for="CourseTitle" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Instructor"></label>
+        <input asp-for="Instructor" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="StartDate"></label>
+        <input asp-for="StartDate" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DurationWeeks"></label>
+        <input asp-for="DurationWeeks" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Level"></label>
+        <select asp-for="Level" class="form-control">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Create</button>
+    <a class="btn btn-secondary mt-3" href="@Url.Action("Index")">Cancel</a>
+</form>

@@ -1,0 +1,16 @@
+@model TBADatalyticsSolutions.Models.TrainingCourse
+
+@{
+    ViewData["Title"] = "Delete Course";
+}
+
+<h2>Are you sure you want to delete this course?</h2>
+<div>
+    <h4>@Model.CourseTitle</h4>
+    <p>@Model.Description</p>
+</div>
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a class="btn btn-secondary" href="@Url.Action("Index")">Cancel</a>
+</form>
