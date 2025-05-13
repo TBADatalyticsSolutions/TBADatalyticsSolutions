@@ -3,37 +3,85 @@
     ViewData["Title"] = "Get Started";
 }
 <div class="row">
+    <!-- Register Form -->
     <div class="col-md-6">
-        <h2>Register</h2>
+        <h2 class="text-primary">Register</h2>
         <form asp-action="Register" method="post">
             <div class="mb-3">
                 <label asp-for="Email" class="form-label">Email</label>
                 <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
+
             <div class="mb-3">
                 <label asp-for="PasswordHash" class="form-label">Password</label>
-                <input asp-for="PasswordHash" class="form-control" type="password" />
+                <input asp-for="PasswordHash" class="form-control" type="password" id="regPassword" />
+                <div id="strengthMessage" class="form-text"></div>
+                <span asp-validation-for="PasswordHash" class="text-danger"></span>
             </div>
+
             <div class="mb-3">
                 <label asp-for="ConfirmPasswordHash" class="form-label">Confirm Password</label>
                 <input asp-for="ConfirmPasswordHash" class="form-control" type="password" />
+                <span asp-validation-for="ConfirmPasswordHash" class="text-danger"></span>
             </div>
+
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
     </div>
 
+    <!-- Login Form -->
     <div class="col-md-6">
-        <h2>Login</h2>
+        <h2 class="text-success">Login</h2>
         <form asp-action="Login" method="post">
             <div class="mb-3">
                 <label class="form-label">Email</label>
                 <input name="email" class="form-control" />
             </div>
+
             <div class="mb-3">
                 <label class="form-label">Password</label>
                 <input name="password" type="password" class="form-control" />
             </div>
+
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember Me</label>
+            </div>
+
             <button type="submit" class="btn btn-success">Login</button>
+
+            <div class="mt-3">
+                <p>Or login with:</p>
+                <a href="/signin-google" class="btn btn-outline-danger">
+                    <i class="bi bi-google"></i> Google
+                </a>
+            </div>
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const password = document.getElementById("regPassword");
+        const strengthMessage = document.getElementById("strengthMessage");
+
+        password.addEventListener("input", function () {
+            const val = password.value;
+            let strength = "Weak";
+            let color = "red";
+
+            if (val.length >= 8 && /[A-Z]/.test(val) && /\d/.test(val) && /[!@@#$%^&*]/.test(val)) {
+                strength = "Strong";
+                color = "green";
+            } else if (val.length >= 6) {
+                strength = "Moderate";
+                color = "orange";
+            }
+
+            strengthMessage.textContent = `Password Strength: ${strength}`;
+            strengthMessage.style.color = color;
+        });
+    </script>
+}

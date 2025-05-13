@@ -1,3 +1,13 @@
+C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.csproj.AssemblyReference.cache
+C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.AssemblyInfoInputs.cache
+C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.AssemblyInfo.cs
+C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.csproj.CoreCompileInputs.cache
+C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.RazorAssemblyInfo.cache
+C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.RazorAssemblyInfo.cs
+C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.sourcelink.json
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\bin\Debug\net8.0\appsettings.json
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\bin\Debug\net8.0\TBADatalyticsSolutions.staticwebassets.runtime.json
@@ -81,15 +91,6 @@ C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\bin\Debug\net
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.csproj.AssemblyReference.cache
-C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.AssemblyInfoInputs.cache
-C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.AssemblyInfo.cs
-C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.csproj.CoreCompileInputs.cache
-C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.RazorAssemblyInfo.cache
-C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.RazorAssemblyInfo.cs
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\scopedcss\bundle\TBADatalyticsSolutions.styles.css
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\scopedcss\projectbundle\TBADatalyticsSolutions.bundle.scp.css
@@ -108,4 +109,3 @@ C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.pdb
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.genruntimeconfig.cache
 C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\ref\TBADatalyticsSolutions.dll
-C:\Users\BASTUL\Desktop\MYDocuments\MY_CODE\TBADatalyticsSolutions\obj\Debug\net8.0\TBADatalyticsSolutions.sourcelink.json

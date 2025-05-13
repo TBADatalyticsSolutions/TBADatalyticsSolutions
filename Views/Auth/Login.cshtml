@@ -1,17 +1,26 @@
+@model TBADatalyticsSolutions.Models.UserAccount
 @{
     ViewData["Title"] = "Login";
 }
-<h2 class="text-success">Login</h2>
+<h2 class="text-success">Login to Your Account</h2>
 
 <form asp-action="Login" method="post">
     <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input name="email" class="form-control" required />
+        <label asp-for="Email" class="form-label">Email</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
     </div>
+
     <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input name="password" type="password" class="form-control" required />
+        <label asp-for="PasswordHash" class="form-label">Password</label>
+        <input asp-for="PasswordHash" type="password" class="form-control" />
+        <span asp-validation-for="PasswordHash" class="text-danger"></span>
     </div>
+
     <button type="submit" class="btn btn-success">Login</button>
     <p class="mt-3">Don't have an account? <a href="@Url.Action("Register", "Auth")">Register here</a>.</p>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

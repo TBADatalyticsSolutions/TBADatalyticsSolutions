@@ -1,74 +1,108 @@
 using Microsoft.AspNetCore.Mvc;
-using TBADatalyticsSolutions.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using TBADatalyticsSolutions.Models;
+using TBADatalyticsSolutions.IServices;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using TBADatalyticsSolutions.Data;
 
-public class AuthController : Controller
+namespace TBADatalyticsSolutions.Controllers
 {
-    private readonly AppDbContext _context;
-    private readonly IPasswordHasher<UserAccount> _passwordHasher;
-
-    public AuthController(AppDbContext context, IPasswordHasher<UserAccount> passwordHasher)
+    public class AuthController : Controller
     {
-        _context = context;
-        _passwordHasher = passwordHasher;
-    }
+        private readonly IUserService _userService;
+        private readonly AppDbContext _context;
 
-    public IActionResult Index() => View();
-
-    [HttpPost]
-    public async Task<IActionResult> Register(UserAccount model)
-    {
-        if (!ModelState.IsValid || model.PasswordHash != model.ConfirmPasswordHash)
+        public AuthController(IUserService userService, AppDbContext context)
         {
-            ModelState.AddModelError("", "Passwords do not match or form is invalid.");
-            return View("Index", model);
+            _userService = userService;
+            _context = context;
         }
 
-        if (await _context.UserAccounts.AnyAsync(u => u.Email == model.Email))
+        public IActionResult Index() => View();
+
+        [HttpPost]
+        public async Task<IActionResult> Register(UserAccount model)
         {
-            ModelState.AddModelError("", "Email is already registered.");
-            return View("Index", model);
+            if (!ModelState.IsValid || model.PasswordHash != model.ConfirmPasswordHash)
+            {
+                ModelState.AddModelError("", "Passwords do not match or form is invalid.");
+                return View("Index", model);
+            }
+
+            if (await _userService.EmailExistsAsync(model.Email))
+            {
+                ModelState.AddModelError("", "Email is already registered.");
+                return View("Index", model);
+            }
+
+            await _userService.RegisterUserAsync(model);
+            await SignInUser(model.Email);
+            return RedirectToAction("Index", "Home");
         }
 
-        model.PasswordHash = _passwordHasher.HashPassword(model, model.PasswordHash);
-        _context.UserAccounts.Add(model);
-        await _context.SaveChangesAsync();
-
-        // Create login session after registration
-        await SignInUser(model.Email);
-        return RedirectToAction("Index", "Home");
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Login(string email, string password)
-    {
-        var user = await _context.UserAccounts.FirstOrDefaultAsync(u => u.Email == email);
-        if (user == null || _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, password) != PasswordVerificationResult.Success)
+        [HttpPost]
+        public async Task<IActionResult> Login(string email, string password)
         {
-            ModelState.AddModelError("", "Invalid email or password.");
-            return View("Index");
+            var isValidUser = await _userService.ValidateCredentialsAsync(email, password);
+            if (!isValidUser)
+            {
+                ModelState.AddModelError("", "Invalid email or password.");
+                return View("Index");
+            }
+
+            await SignInUser(email);
+            return RedirectToAction("Index", "Home");
         }
 
-        await SignInUser(email);
-        return RedirectToAction("Index", "Home");
-    }
+        [HttpGet("signin-google")]
+        public async Task<IActionResult> ExternalLoginCallback()
+        {
+            var authenticateResult = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-    public async Task<IActionResult> Logout()
-    {
-        await HttpContext.SignOutAsync();
-        return RedirectToAction("Index", "Home");
-    }
+            if (!authenticateResult.Succeeded)
+                return RedirectToAction("Index");
 
-    private async Task SignInUser(string email)
-    {
-        var claims = new List<Claim> { new Claim(ClaimTypes.Name, email) };
-        var identity = new ClaimsIdentity(claims, "login");
-        var principal = new ClaimsPrincipal(identity);
+            var email = authenticateResult.Principal.FindFirst(ClaimTypes.Email)?.Value;
 
-        await HttpContext.SignInAsync(principal);
+            if (!string.IsNullOrEmpty(email))
+            {
+                var user = await _context.UserAccounts.FirstOrDefaultAsync(u => u.Email == email);
+                if (user == null)
+                {
+                    user = new UserAccount
+                    {
+                        Email = email,
+                        PasswordHash = "",
+                        ConfirmPasswordHash = "",
+                        IsEmailConfirmed = true
+                    };
+
+                    _context.UserAccounts.Add(user);
+                    await _context.SaveChangesAsync();
+                }
+
+                await SignInUser(user.Email);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        // Removed duplicate SignInUser method
+
+        private async Task SignInUser(string email)
+        {
+            var claims = new List<Claim> { new Claim(ClaimTypes.Name, email) };
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+        }
     }
 }
