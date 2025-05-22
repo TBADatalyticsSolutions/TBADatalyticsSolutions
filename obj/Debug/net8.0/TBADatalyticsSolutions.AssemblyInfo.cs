@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TBADatalyticsSolutions")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c6237092b4c85e4b6937f8d9a3779bf2711d7e4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c449fc4cd7f54009b361a28e4f58cd2128c6de2d")]
 [assembly: System.Reflection.AssemblyProductAttribute("TBADatalyticsSolutions")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TBADatalyticsSolutions")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

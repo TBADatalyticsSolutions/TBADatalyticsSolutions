@@ -14,7 +14,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
     ));
-
 // Configure Identity
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
